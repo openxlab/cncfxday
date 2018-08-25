@@ -1,4 +1,4 @@
-# Table of contents
+# Table Of Contents
 
 * [CNCF X Days](README.md)
 * [01 Install&Config OS](01-install-and-config-os.md)
