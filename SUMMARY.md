@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Initial page](README.md)
+* [CNCF X Days](README.md)
 * [01 Install&Config OS](01-install-and-config-os.md)
 * [02 Install&Config Docker](02-install-and-config-docker.md)
 * [03 Deploy Kubernetes With Kubeadm](03-deploy-kubernetes-with-kubeadm.md)
