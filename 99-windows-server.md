@@ -42,7 +42,7 @@ net stop w32time && net start w32time
 gpedit.msc
 ```
 
-![](.gitbook/assets/windows-time.PNG)
+![](./images/windows-time.PNG)
 
 ## 02 Windows Server Add New Disk
 
@@ -57,6 +57,3 @@ select disk 1
 attributes disk clear readonly
 online disk
 ```
-
-
-
