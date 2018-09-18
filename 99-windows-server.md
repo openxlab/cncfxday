@@ -12,6 +12,7 @@ W32tm.exe /config /manualpeerlist:192.168.100.1 /syncfromflags:MANUAL
 
 ```bash
 reg add HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\w32time\TimeProviders\NtpServer /v Enabled /t REG_DWORD /d 1 /f
+W32tm.exe /config /update
 ```
 
 查询相关配置是否生效
@@ -34,4 +35,28 @@ Stop-Service w32time
 Start-Service w32time
 net stop w32time && net start w32time
 ```
+
+使用 Group Policy Object Editor
+
+```text
+gpedit.msc
+```
+
+![](.gitbook/assets/windows-time.PNG)
+
+## 02 Windows Server Add New Disk
+
+为Windows Server添加新的磁盘
+
+```text
+diskpart.exe
+list disk
+san
+san policy=onlineall
+select disk 1
+attributes disk clear readonly
+online disk
+```
+
+
 
