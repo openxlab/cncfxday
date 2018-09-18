@@ -193,5 +193,10 @@ ssh 'root@192.168.80.111'
 sudo apt-get install -y firefox firefox-locale-zh-hans
 sudo mv 'WenQuanYi Micro Hei.ttf' /usr/share/fonts
 sudo fc-cache -f -v
+
+export http_proxy="http://proxy.com.cn:80"
+export https_proxy="https://proxy.com.cn:80"
+export no_proxy="localhost,127.0.0.1,192.168.0.0/16"
+alias curl='curl -x http://proxy.com.cn:80'
 ```
 
