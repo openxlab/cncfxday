@@ -59,6 +59,7 @@ cat /proc/sys/net/ipv4/ip_forward
 ## **安装KVM及相关管理工具**
 
 ```text
+sudo apt purge lxd lxd-client
 sudo apt-get install -y qemu-kvm libvirt-bin libvirt-clients libvirt-daemon-system ubuntu-vm-builder virtinst bridge-utils virt-manager libguestfs-tools
 sudo adduser $USER libvirt
 sudo adduser $USER libvirt-qemu
