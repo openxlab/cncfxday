@@ -55,6 +55,7 @@ sudo cat /proc/cpuinfo | egrep "vmx|svm"
 cat /sys/module/kvm_intel/parameters/nested
 echo 'options kvm_intel nested=1' | sudo tee -a /etc/modprobe.d/qemu-system-x86.conf
 echo 'net.ipv4.ip_forward=1' | sudo tee -a /etc/sysctl.conf
+cat /proc/sys/net/ipv4/ip_forward
 ```
 
 **安装KVM及相关管理工具**
