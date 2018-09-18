@@ -10,4 +10,5 @@
 * [07 Harbor 101](07-harbor-101.md)
 * [08 Spinnaker](08-spinnaker.md)
 * [99 Windows Server](99-windows-server.md)
+* [98 Prepare Ubuntu KVM Host](98-prepare-ubuntu-kvm-host.md)
 
