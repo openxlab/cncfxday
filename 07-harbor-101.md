@@ -1,7 +1,3 @@
----
-description: Harbor 101
----
-
 # 07 Harbor 101
 
 ## Getting Super Powers

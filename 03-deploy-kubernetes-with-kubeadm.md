@@ -1,7 +1,3 @@
----
-description: Deploy Kubernetes With Kubeadm
----
-
 # 03 Deploy Kubernetes With Kubeadm
 
 ## Getting Super Powers

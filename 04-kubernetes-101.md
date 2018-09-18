@@ -1,7 +1,3 @@
----
-description: Kubernetes 101
----
-
 # 04 Kubernetes 101
 
 ## Getting Super Powers

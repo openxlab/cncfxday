@@ -1,4 +1,4 @@
-# Table Of Contents
+# Table of contents
 
 * [CNCF X Days](README.md)
 * [01 Install&Config OS](01-install-and-config-os.md)
@@ -9,4 +9,5 @@
 * [06 Helm 101](06-helm-101.md)
 * [07 Harbor 101](07-harbor-101.md)
 * [08 Spinnaker](08-spinnaker.md)
+* [99 Windows Server](99-windows-server.md)
 

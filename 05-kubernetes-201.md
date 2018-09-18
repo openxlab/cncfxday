@@ -1,7 +1,3 @@
----
-description: Kubernetes 201
----
-
 # 05 Kubernetes 201
 
 ## Getting Super Powers

@@ -1,7 +1,3 @@
----
-description: Spinnaker 101
----
-
 # 08 Spinnaker
 
 ## Getting Super Powers

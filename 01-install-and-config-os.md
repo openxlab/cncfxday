@@ -1,7 +1,3 @@
----
-description: Install&Config Linux OS
----
-
 # 01 Install&Config OS
 
 

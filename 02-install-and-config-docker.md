@@ -1,7 +1,3 @@
----
-description: Install&Config Docker
----
-
 # 02 Install&Config Docker
 
 ## Getting Super Powers
