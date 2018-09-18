@@ -1,8 +1,6 @@
 # 98 Prepare Ubuntu KVM Host
 
-## Getting Super Powers
-
-**配置网络采用bridge方式**
+## **配置网络采用bridge方式**
 
 ```
 cat << EOF | sudo tee /etc/netplan/01-netcfg.yaml
@@ -26,20 +24,20 @@ EOF
 sudo netplan apply
 ```
 
-**sudo免密配置**
+## **sudo免密配置**
 
 ```
 echo "ubuntu ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers.d/ubuntu
 sudo chmod 0440 /etc/sudoers.d/ubuntu
 ```
 
-**配置apt proxy**
+## **配置apt proxy**
 
 ```text
 echo 'Acquire::http::Proxy "http://proxy.com.cn:80";' | sudo tee /etc/apt/apt.conf
 ```
 
-**更新系统**
+## **更新系统**
 
 ```text
 sudo apt-get update
@@ -48,7 +46,7 @@ sudo apt-get dist-upgrade -y
 sudo reboot
 ```
 
-**配置嵌套虚拟化**
+## **配置嵌套虚拟化**
 
 ```text
 sudo cat /proc/cpuinfo | egrep "vmx|svm"
@@ -58,7 +56,7 @@ echo 'net.ipv4.ip_forward=1' | sudo tee -a /etc/sysctl.conf
 cat /proc/sys/net/ipv4/ip_forward
 ```
 
-**安装KVM及相关管理工具**
+## **安装KVM及相关管理工具**
 
 ```text
 sudo apt-get install -y qemu-kvm libvirt-bin libvirt-clients libvirt-daemon-system ubuntu-vm-builder virtinst bridge-utils virt-manager libguestfs-tools
@@ -68,7 +66,7 @@ sudo adduser $USER libvirtd
 sudo kvm-ok
 ```
 
-**配置libvirt相关网络**
+## **配置libvirt相关网络**
 
 ```text
 brctl show
@@ -112,7 +110,7 @@ virsh net-autostart br-pxe
 virsh net-start br-pxe
 ```
 
-**安装CentOS虚拟机**
+## **安装CentOS虚拟机**
 
 ```text
 sudo qemu-img create -f qcow2 /var/lib/libvirt/images/centos.qcow2 100G
@@ -139,7 +137,7 @@ sudo virt-install --connect qemu:///system --import --name $VM_NAME \
   --os-type linux --os-variant=rhel7
 ```
 
-**安装Ubuntu虚拟机**
+## **安装Ubuntu虚拟机**
 
 ```text
 sudo qemu-img create -f qcow2 /var/lib/libvirt/images/ubuntu.qcow2 100G
@@ -166,7 +164,7 @@ sudo virt-install --connect qemu:///system --import --name $VM_NAME \
   --os-type linux --os-variant=ubuntu16.04
 ```
 
-**安装Windows虚拟机**
+## **安装Windows虚拟机**
 
 ```text
 sudo qemu-img create -f qcow2 /var/lib/libvirt/images/win2019.qcow2 80G
@@ -184,7 +182,7 @@ sudo virt-install --connect qemu:///system --name win2019 \
 virsh vncdisplay win2019 
 ```
 
-**系统其他设置**
+## **系统其他设置**
 
 ```text
 ssh-keygen -b 2048 -t rsa -f ~/.ssh/id_rsa -q -N ""
