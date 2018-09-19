@@ -163,6 +163,29 @@ sudo virt-install --connect qemu:///system --import --name $VM_NAME \
   --network=bridge:br-nat,model=virtio --network=bridge:br-ex,model=virtio \
   --disk path=/var/lib/libvirt/images/$VM_NAME.qcow2,format=qcow2 \
   --os-type linux --os-variant=ubuntu16.04
+
+VM_NAME=kube-worker-ubuntu
+sudo cp ubuntu.qcow2.ip253 /var/lib/libvirt/images/$VM_NAME.qcow2
+sudo chown libvirt-qemu:kvm /var/lib/libvirt/images/$VM_NAME.qcow2
+cat <<EOF | tee netcfg
+network:
+  version: 2
+  renderer: networkd
+  ethernets:
+    ens3:
+      addresses: [ 192.168.100.111/24 ]
+      gateway4: 192.168.100.1
+      nameservers:
+          search: [ openxlab.com ]
+          addresses:
+              - "192.168.100.1"
+EOF
+sudo guestfish --rw -i -a /var/lib/libvirt/images/$VM_NAME.qcow2 upload netcfg /etc/netplan/01-netcfg.yaml
+sudo virt-install --connect qemu:///system --import --name $VM_NAME \
+  --ram 16384 --vcpus=8,maxvcpus=8,sockets=2,cores=4 \
+  --network=bridge:br-ex,model=virtio \
+  --disk path=/var/lib/libvirt/images/$VM_NAME.qcow2,format=qcow2 \
+  --os-type linux --os-variant=ubuntu16.04
 ```
 
 ## **安装Windows虚拟机**
@@ -180,7 +203,7 @@ sudo virt-install --connect qemu:///system --name win2019 \
   --graphics vnc,listen=0.0.0.0,port=5910 --hvm --cpu=IvyBridge,+vmx \
   --virt-type kvm --os-type windows
 
-virsh vncdisplay win2019 
+virsh vncdisplay win2019
 ```
 
 ## **系统其他设置**
@@ -199,4 +222,3 @@ export https_proxy="https://proxy.com.cn:80"
 export no_proxy="localhost,127.0.0.1,192.168.0.0/16"
 alias curl='curl -x http://proxy.com.cn:80'
 ```
-
