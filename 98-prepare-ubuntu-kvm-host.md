@@ -2,7 +2,7 @@
 
 ## **配置网络采用bridge方式**
 
-```
+```text
 cat << EOF | sudo tee /etc/netplan/01-netcfg.yaml
 network:
   version: 2
@@ -26,7 +26,7 @@ sudo netplan apply
 
 ## **sudo免密配置**
 
-```
+```text
 echo "ubuntu ALL=(ALL) NOPASSWD:ALL" | sudo tee -a /etc/sudoers.d/ubuntu
 sudo chmod 0440 /etc/sudoers.d/ubuntu
 ```
@@ -222,3 +222,4 @@ export https_proxy="https://proxy.com.cn:80"
 export no_proxy="localhost,127.0.0.1,192.168.0.0/16"
 alias curl='curl -x http://proxy.com.cn:80'
 ```
+

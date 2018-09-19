@@ -1,8 +1,6 @@
 # 01 Install&Config OS
 
-## Install Ubuntu OS
-
-
+## 01 Install Ubuntu OS
 
 ![](.gitbook/assets/ubuntu-install-01.PNG)
 
@@ -75,3 +73,4 @@
 ![](.gitbook/assets/ubuntu-install-35.PNG)
 
 ![](.gitbook/assets/ubuntu-install-36.PNG)
+
