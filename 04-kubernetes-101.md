@@ -83,7 +83,7 @@ kubectl get secrets
 
 kubectl create -f - << EOF
 kind: Deployment
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 metadata:
   name: mysql
   labels:
@@ -119,7 +119,8 @@ spec:
             claimName: mysql-pvc-nfs
 EOF
 
-kubectl get deployment
+kubectl get deployments
+kubectl get rs
 kubectl describe deployment mysql
 kubectl delete deployment mysql
 kubectl get pods
@@ -150,7 +151,7 @@ Deploy WordPress
 ```yaml
 kubectl create -f - << EOF
 kind: Deployment
-apiVersion: extensions/v1beta1
+apiVersion: apps/v1
 metadata:
   name: wordpress
   labels:
