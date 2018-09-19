@@ -74,3 +74,5 @@
 
 ![](.gitbook/assets/ubuntu-install-36.PNG)
 
+## 02 Install CentOS OS
+
