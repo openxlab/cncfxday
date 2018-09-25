@@ -141,6 +141,7 @@ spec:
     app: mysql
 EOF
 
+sudo apt install -y nfs-common
 showmount -e 192.168.100.99
 mkdir ./nfsclient
 sudo mount -t nfs -o nfsvers=4 192.168.100.99:/mnt/pool-xlab/kubepv ./nfsclient
