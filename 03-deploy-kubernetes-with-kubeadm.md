@@ -54,11 +54,10 @@ curl -x http://proxy.com.cn:80 -O https://raw.githubusercontent.com/coreos/flann
 kubectl apply -f kube-flannel.yml
 
 curl -x http://proxy.com.cn:80 -O https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
-echo "  type: NodePort" >> kubernetes-dashboard.yaml
-sed -i 's/- port: 443/- port: 443\n      nodePort: 30443/' kubernetes-dashboard.yaml
+sed -i 's/targetPort: 8443/targetPort: 8443\n      nodePort: 30443\n  type: LoadBalancer/' kubernetes-dashboard.yaml
 kubectl apply -f kubernetes-dashboard.yaml
 kubectl -n kube-system get service kubernetes-dashboard
-https://192.168.100.111:30443
+https://192.168.100.110:30443
 
 cat <<EOF | kubectl create -f -
 apiVersion: v1
