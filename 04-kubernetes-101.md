@@ -11,12 +11,14 @@ kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: mysqlpv-nfs
+  annotations:
+    volume.beta.kubernetes.io/mount-options: rw,nfsvers=4,noexec
 spec:
   capacity:
     storage: 50Gi
   accessModes:
-    - ReadWriteMany
-  persistentVolumeReclaimPolicy: Retain
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
   nfs:
     path: /mnt/pool-xlab/mysqlpv
     server: 192.168.100.99
@@ -27,12 +29,14 @@ kind: PersistentVolume
 apiVersion: v1
 metadata:
   name: wordpresspv-nfs
+  annotations:
+    volume.beta.kubernetes.io/mount-options: rw,nfsvers=4,noexec
 spec:
   capacity:
     storage: 50Gi
   accessModes:
-    - ReadWriteMany
-  persistentVolumeReclaimPolicy: Retain
+    - ReadWriteOnce
+  persistentVolumeReclaimPolicy: Recycle
   nfs:
     path: /mnt/pool-xlab/wordpresspv
     server: 192.168.100.99
@@ -52,7 +56,7 @@ metadata:
   name: mysql-pvc-nfs
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 20Gi
@@ -65,7 +69,7 @@ metadata:
   name: wordpress-pvc-nfs
 spec:
   accessModes:
-    - ReadWriteMany
+    - ReadWriteOnce
   resources:
     requests:
       storage: 20Gi
