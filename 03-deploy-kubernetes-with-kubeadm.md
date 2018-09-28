@@ -108,6 +108,24 @@ sudo kubeadm join 192.168.100.110:6443 --token 19gvc6.gq2wbmt6a7wep7bg --discove
 
 ```
 
+
+03 Save the Kubernetes Docker images
+
+```bash
+docker save \
+k8s.gcr.io/kube-apiserver:v1.12.0 \
+k8s.gcr.io/kube-controller-manager:v1.12.0 \
+k8s.gcr.io/kube-scheduler:v1.12.0 \
+k8s.gcr.io/kube-proxy:v1.12.0 \
+k8s.gcr.io/etcd:3.2.24 \
+k8s.gcr.io/coredns:1.2.2 \
+k8s.gcr.io/pause:3.1 \
+| gzip -c > k8s-v.12.0.tar.gz
+
+gunzip -c k8s-v.12.0.tar.gz | docker load
+
+```
+
 ## Kubeadm On CentOS
 
 ### master
